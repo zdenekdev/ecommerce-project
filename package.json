@@ -14,7 +14,8 @@
     "@prisma/client": "^5.5.2",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "stripe": "^11.11.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",

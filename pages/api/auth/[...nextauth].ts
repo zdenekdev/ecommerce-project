@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
+import { type Prisma } from "@prisma/client";
 import Stripe from "stripe";
 
 const prisma = new PrismaClient();
@@ -29,7 +30,7 @@ export default NextAuth({
         // Update our prisma user with the stripecustomerid
         await prisma.user.update({
           where: { id: user.id },
-          data: { stripeCustomerId: customer.id as string },
+          data: { stripeCustomerId: customer.id },
         });
       }
     },

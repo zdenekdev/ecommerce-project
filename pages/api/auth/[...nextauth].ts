@@ -6,7 +6,7 @@ import Stripe from "stripe";
 
 const prisma = new PrismaClient();
 
-export default NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -29,9 +29,11 @@ export default NextAuth({
         // Update our prisma user with the stripecustomerid
         await prisma.user.update({
           where: { id: user.id },
-          data: { stripeCustomerId: customer.id as string },
+          data: { stripeCustomerId: customer.id },
         });
       }
     },
   },
-});
+};
+
+export default NextAuth(authOptions);

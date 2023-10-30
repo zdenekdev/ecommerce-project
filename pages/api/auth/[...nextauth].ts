@@ -29,7 +29,7 @@ export default NextAuth({
         // Update our prisma user with the stripecustomerid
         await prisma.user.update({
           where: { id: user.id },
-          data: { stripeCustomerId: customer.id },
+          data: { stripeCustomerId: customer.id as string },
         });
       }
     },

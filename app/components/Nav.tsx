@@ -10,13 +10,16 @@ import { AiFillShopping } from "react-icons/ai";
 
 function Nav({ user }: Session) {
   const cartStore = useCartStore();
+
   return (
     <nav className="flex justify-between items-center py-12">
       <Link href={"/"}>
         <h1>Styled</h1>
       </Link>
       <ul className="flex items-center gap-12">
-        <li className="flex items-center text-3xl relative cursor-pointer">
+        <li
+          onClick={() => cartStore.toggleCart()}
+          className="flex items-center text-3xl relative cursor-pointer">
           <AiFillShopping />
           <span className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
             {cartStore.cart.length}

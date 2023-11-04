@@ -5,6 +5,9 @@ import Nav from "./components/Nav";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Hydrate from "./components/Hydrate";
+import { Roboto, Lobster_Two } from "next/font/google";
+
+const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +25,7 @@ export default async function RootLayout({
   console.log(session?.user?.name);
   return (
     <html lang="en">
-      <body className={`${inter.className} mx-64`}>
+      <body className={`${inter.className} mx-64 ${roboto.className}`}>
         <Hydrate>
           <Nav user={session?.user} expires={session?.expires as string} />
           {children}

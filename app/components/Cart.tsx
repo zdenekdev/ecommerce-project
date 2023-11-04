@@ -9,7 +9,6 @@ import React from "react";
 
 function Cart() {
   const cartStore = useCartStore();
-  console.log(cartStore.isOpen);
 
   return (
     <div

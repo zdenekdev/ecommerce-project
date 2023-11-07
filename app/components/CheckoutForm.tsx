@@ -53,7 +53,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   return (
     <form className="text-gray-600" onSubmit={handleSubmit} id="payment-form">
-      <PaymentElement id="PaymentElement" options={{ layout: "tabs" }} />
+      <PaymentElement id="payment-element" options={{ layout: "tabs" }} />
       <h1 className="py-4 text-sm font-bold">Total: {formattedPrice}</h1>
       <button
         className={`py-2 mt-4 w-full bg-teal-700 rounded-md text-white disabled:opacity-25`}

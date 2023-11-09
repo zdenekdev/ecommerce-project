@@ -27,6 +27,7 @@ export default async function handler(
   }
 
   let event: Stripe.Event;
+  // Handle different types of events
 
   try {
     event = stripe.webhooks.constructEvent(
@@ -38,9 +39,7 @@ export default async function handler(
     return res.status(400).send("Webhook error" + err);
   }
 
-  // Handle different types of events
-
-  switch (event?.type) {
+  switch (event.type) {
     case "payment_intent.created":
       const paymentIntent = event.data.object;
       console.log("Payment intent was created");

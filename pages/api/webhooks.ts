@@ -39,6 +39,8 @@ export default async function handler(
     return res.status(400).send("Webhook error" + err);
   }
 
+  // Trigger events
+
   switch (event.type) {
     case "payment_intent.created":
       const paymentIntent = event.data.object;
